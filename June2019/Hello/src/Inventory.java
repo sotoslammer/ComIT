@@ -11,7 +11,7 @@ public class Inventory {
         String brandName = in.next();
         System.out.println("Please enter the number of " + productType + " in the shipment");
         int numProductInShipment = in.nextInt();
-        int totalCostOfShipment = cost * numProductInShipment / 10;
+        int totalCostOfShipment = cost * numProductInShipment / 100;
         System.out.println("Shipment Summary:\n" +
                                    "The new product is " + productType + ".\n" +
                                    "This shipment included "+ numProductInShipment + " from " + brandName + ".\n" +
