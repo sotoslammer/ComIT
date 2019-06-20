@@ -1,0 +1,8 @@
+1 - Write a program in Java that reads two numbers on the keyboard and say which is the largest and which is the smallest.
+2 - Write a program in Java that converts from canadian dollars to US dollars. You will receive a decimal number corresponding to the amount in CAD and will answer with the corresponding amount in US dollars. Take the quotation of the dollar today.
+3 - Write a Java program that does the following: declare a variable N of type int, a variable A of type double and a variable C of type char and assign to each one a value. The following screen displays:
+The value of each variable. The sum of N + A. And A - N
+4 - Write a java program that declares an integer variable B and assign it a value. It then displays a message indicating whether the value of B is positive or negative. We will consider 0 as positive.
+If for example B = 1 the output will be 1 is positive. If for example B = -1 the output will be: -1 is negative.
+5 - Write a program in JAVA that takes as input the enrollment and 5 grades of a student; Print the enrollment, the average and the word "approved" if the student has an average greater than or equal to 6, and the word "not approved" otherwise. Data: MAT, CAL1, CAL2, CAL3, CAL4, CAL5 Where: MAT is an integer variable that represents the student's enrollment. CAL1, CAL2, CAL3, CAL4 and CAL5 are real-type variables representing the student's 5 grades.
+6 - Write a program in JAVA that takes as input a salary, apply a 15% increase if the salary is less than $ 1000 and 12% otherwise. Print the new salary.
