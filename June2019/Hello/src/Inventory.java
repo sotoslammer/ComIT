@@ -22,10 +22,6 @@ public class Inventory {
             System.out.println("With GST: " + totalCostOfShipment * 1.05f);
             grandTotal += totalCostOfShipment;
 
-            if (grandTotal > totalCostOfShipment) {
-                break;
-            }
-
             System.out.println("Would you like to enter another product?");
             cont = in.next();
 
