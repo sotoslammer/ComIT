@@ -1,10 +1,16 @@
+package june28;
+
+import july3.Coin;
+
 public class Segment {
     private Point p1;
     private Point p2;
+    private Coin coin;
 
     public Segment(Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
+        coin = new Coin("nickle", 5);
     }
 
     public Point getP1() {

@@ -1,4 +1,6 @@
-public class Point {
+package june28;
+
+class Point {
     private int x;
     private int y;
 
