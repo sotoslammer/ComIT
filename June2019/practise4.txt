@@ -1,0 +1,4 @@
+1 - Make a calculator that asks the user for some input in the form "number operator number"  and prints the result.
+If the user enters "no" or "n" exit the program
+2 - Calculate the salary increase for a group of employees of a company considering the following criteria: If the salary is less than $ 1,000.00: Increase 15% If the salary is greater than or equal to $ 1,000.00: Increase 12% The program must do The following: - Save the new salaries in the arrangement - Calculate the payroll - Print the salaries from the settlement
+3 - Make a program that asks for the salary of N workers (first you must ask how many workers there are) and print the one with the highest salary.

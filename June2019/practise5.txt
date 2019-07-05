@@ -1,0 +1,8 @@
+1 Write a program using OOP pricincples that allows you to enter the height of 10 students, then show the average height, and how many elements are above average, how many are below average.
+
+
+2 - Write a program that uses OOP principles that reads and stores, the name, the commercial value and the type (family (1), public transportation (2), commercial (3)) of 20 vehicles, calculate the value based on:
+• For vehicles with a value greater than 100, 000, charge GST of 20%, for others GST is 16%
+• For vehicles type 1, with value up to 50, 000, apply a discount equivalent to 50% of the GST charged
+• For vehicles type 2 and 3, with a value higher than 80, 000, apply an additional cost of 5%
+• For all vehicles, if the final value is less than 80, 000, apply an additional discount of 5% of the commercial value
