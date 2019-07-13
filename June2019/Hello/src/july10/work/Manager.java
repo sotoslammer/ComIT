@@ -1,13 +1,14 @@
 package july10.work;
 
-public class Manager implements Workable {
+import july12.Person;
+
+public class Manager extends Person implements Workable {
     private int id;
-    private String name;
     private int salary;
 
     public Manager(int id, String name, int salary) {
+        super(name);
         this.id = id;
-        this.name = name;
         this.salary = salary;
     }
 
