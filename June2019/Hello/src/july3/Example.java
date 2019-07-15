@@ -1,11 +1,18 @@
 package july3;
 
 import july3.Exercising;
+
+import java.util.HashSet;
+import java.util.Set;
 //import june28.Point;
 //import june28.Segment;
 
 public class Example {
     public static void main(String[] args) {
+        Set<String> strings = new HashSet<>();
+        for (String s: strings) {
+            s.toLowerCase();
+        }
 //        Point p1 = new Point(0, 0);
 //        Point p3 = new Point(0, 0);
 //        String s1 = new String("hello");
@@ -42,4 +49,5 @@ public class Example {
 //        PI = 2.1f;
 //        return PI * r * r;
 //    }
+
 }

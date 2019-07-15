@@ -19,7 +19,8 @@ public class Survey {
                 salary = in.nextInt();
             }
 
-            participants[i] = new Participant(i, sex, hasJob, salary);
+            Participant participant = new Participant(i, sex, hasJob, salary);
+            participants[i] = participant;
         }
         int numMen = 0, numWoman = 0, numMenWork = 0, numWomanWork = 0, totalSalMen = 0, totalSalWoman = 0;
 
