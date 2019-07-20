@@ -1,11 +1,11 @@
 package movies.movie;
 
-public class Movies {
+public class Movie {
     private String name;
     private String genre;
     private int runtime;
 
-    public Movies(String name, String genre, int runtime) {
+    public Movie(String name, String genre, int runtime) {
         this.name = name;
         this.genre = genre;
         this.runtime = runtime;
