@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Cinema</title>
+</head>
+<body>
+    <h1>Add Cinema</h1>
+    <form action="#" th:action="@{/cinema}" th:object="${cinema}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Address: <input type="text" th:field="*{address}" /></p>
+        <p>City: <input type="text" th:field="*{city}" /></p>
+        <p>Province: <input type="text" th:field="*{province}" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</body>
+</html>
