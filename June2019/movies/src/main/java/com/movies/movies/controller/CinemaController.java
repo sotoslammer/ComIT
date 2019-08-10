@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CinemaController {
@@ -19,14 +20,27 @@ public class CinemaController {
     }
 
     @GetMapping("/cinema")
-    public String cinemas(Model model) {
-        model.addAttribute("cinema", new Cinema());
+    public String cinemas(@RequestParam(required = false, name= "id") Long id, Model model) {
+        Cinema cinema;
+        if (id == null) {
+            cinema = new Cinema();
+        } else {
+            cinema = cinemaService.findCinemaById(id);
+        }
+        model.addAttribute("cinema", cinema);
         return "cinema";
     }
 
     @PostMapping("/cinema")
-    public String addCinema(@ModelAttribute Cinema cinema) {
+    public String addCinema(@ModelAttribute Cinema cinema, Model model) {
         cinemaService.addCinema(cinema);
+        model.addAttribute("cinemas", cinemaService.getCinemas());
+        return "cinemas";
+    }
+
+    @GetMapping("/cinemas")
+    public String cinemas(Model model) {
+        model.addAttribute("cinemas", cinemaService.getCinemas());
         return "cinemas";
     }
 }

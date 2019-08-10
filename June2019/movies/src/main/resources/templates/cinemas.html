@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Added</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../css/movies.css" th:href="@{/css/movies.css}"/>
 </head>
 <body>
-    <p th:text="'Cinema Added: ' + ${cinema.name}"></p>
+    <p th:if="${cinema != null}" th:text="'Cinema Added: ' + ${cinema.name}"></p>
+    <a th:href="@{/cinema}">Add</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Province</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cinema : ${cinemas}">
+                <td th:text="${cinema.name}">Name</td>
+                <td th:text="${cinema.address}">Address</td>
+                <td th:text="${cinema.city}">City</td>
+                <td th:text="${cinema.province}">Province</td>
+                <td>
+                    <a th:href="@{/cinema(id=${cinema.id})}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
