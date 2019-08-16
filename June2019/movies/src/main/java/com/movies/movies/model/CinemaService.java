@@ -28,7 +28,6 @@ public class CinemaService {
         Iterable<Cinema> found = cinemaRepository.findAll();
         List<Cinema> cinemas = new ArrayList<>();
         for (Cinema cinema : found) {
-            System.out.println(cinema.getId());
             cinemas.add(cinema);
         }
         return cinemas;
