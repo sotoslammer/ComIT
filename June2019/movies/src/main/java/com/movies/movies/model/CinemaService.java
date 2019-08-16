@@ -16,7 +16,7 @@ public class CinemaService {
         this.cinemaRepository = cinemaRepository;
     }
 
-    public void addCinema(Cinema cinema) {
+    public void saveCinema(Cinema cinema) {
         cinemaRepository.save(cinema);
     }
 

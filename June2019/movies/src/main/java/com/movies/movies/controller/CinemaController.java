@@ -35,8 +35,8 @@ public class CinemaController {
     }
 
     @PostMapping("/cinema")
-    public String addCinema(@ModelAttribute Cinema cinema, Model model) {
-        cinemaService.addCinema(cinema);
+    public String saveCinema(@ModelAttribute Cinema cinema, Model model) {
+        cinemaService.saveCinema(cinema);
         model.addAttribute("cinemas", cinemaService.getCinemas());
         return "cinemas";
     }

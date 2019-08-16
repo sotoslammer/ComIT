@@ -9,6 +9,7 @@
 <body>
     <h1>Add Cinema</h1>
     <form action="#" th:action="@{/cinema}" th:object="${cinema}" method="post">
+        <p id="id" th:if="${cinema.id != null}"><input type="text" th:field="*{id}"/></p>
         <p>Name: <input type="text" th:field="*{name}" /></p>
         <p>Address: <input type="text" th:field="*{address}" /></p>
         <p>City: <input type="text" th:field="*{city}" /></p>

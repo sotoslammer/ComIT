@@ -5,3 +5,7 @@ h1 {
 th, td {
     padding: 16px;
 }
+
+p#id{
+    visibility: hidden;
+}
