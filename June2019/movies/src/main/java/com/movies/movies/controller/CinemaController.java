@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.persistence.EntityNotFoundException;
+
 @Controller
 public class CinemaController {
     private CinemaService cinemaService;
@@ -25,7 +27,8 @@ public class CinemaController {
         if (id == null) {
             cinema = new Cinema();
         } else {
-            cinema = cinemaService.findCinemaById(id);
+            cinema = cinemaService.findCinemaById(id)
+                    .orElseThrow(() -> new EntityNotFoundException("Could not find cinema " + id));
         }
         model.addAttribute("cinema", cinema);
         return "cinema";

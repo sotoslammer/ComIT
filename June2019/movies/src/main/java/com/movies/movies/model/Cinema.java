@@ -1,17 +1,34 @@
 package com.movies.movies.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Cinema {
-    private long id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String name;
     private String address;
     private String city;
     private String province;
 
-    public long getId() {
+    public Cinema() {}
+
+    public Cinema(String name, String address, String city, String province) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.province = province;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
