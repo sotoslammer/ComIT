@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../css/movies.css" th:href="@{/css/movies.css}"/>
+</head>
+<body>
+<h1>Save Movie</h1>
+<form action="#" th:action="@{/movie}" th:object="${movie}" method="post">
+    <p id="id" th:if="${movie.id != null}"><input type="text" th:field="*{id}"/></p>
+    <p>Title: <input type="text" th:field="*{title}" /></p>
+    <p>Genre: <input type="text" th:field="*{genre}" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

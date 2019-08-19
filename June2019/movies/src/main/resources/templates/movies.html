@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../css/movies.css" th:href="@{/css/movies.css}"/>
+</head>
+<body>
+<p th:if="${movie != null}" th:text="'Movie Added: ' + ${movie.name}"></p>
+<a th:href="@{/movie}">Add</a>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.title}">Title</td>
+        <td th:text="${movie.genre}">Genre</td>
+        <td>
+            <a th:href="@{/movie(id=${movie.id})}">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
