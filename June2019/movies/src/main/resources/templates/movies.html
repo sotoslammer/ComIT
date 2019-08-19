@@ -7,7 +7,7 @@
           href="../css/movies.css" th:href="@{/css/movies.css}"/>
 </head>
 <body>
-<p th:if="${movie != null}" th:text="'Movie Added: ' + ${movie.name}"></p>
+<p th:if="${movie != null}" th:text="'Movie Added: ' + ${movie.title}"></p>
 <a th:href="@{/movie}">Add</a>
 <table>
     <thead>
