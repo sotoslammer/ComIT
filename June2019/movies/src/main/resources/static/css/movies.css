@@ -16,3 +16,7 @@ th, td {
     font-size: 24px;
     font-weight: 700;
 }
+
+p#id{
+    visibility: hidden;
+}
