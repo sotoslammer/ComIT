@@ -1,7 +1,7 @@
 package com.movies.movies.controller;
 
-import com.movies.movies.model.Movie;
-import com.movies.movies.model.MovieService;
+import com.movies.movies.model.movie.Movie;
+import com.movies.movies.model.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

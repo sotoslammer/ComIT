@@ -1,4 +1,6 @@
-package com.movies.movies.model;
+package com.movies.movies.model.cinema;
+
+import com.movies.movies.model.TheatreRoom;
 
 import javax.persistence.*;
 import java.util.Set;

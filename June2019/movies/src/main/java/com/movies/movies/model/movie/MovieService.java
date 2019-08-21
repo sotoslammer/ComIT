@@ -1,4 +1,4 @@
-package com.movies.movies.model;
+package com.movies.movies.model.movie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
