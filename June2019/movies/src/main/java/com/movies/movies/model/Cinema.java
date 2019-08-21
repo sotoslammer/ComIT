@@ -1,9 +1,7 @@
 package com.movies.movies.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Cinema {
@@ -14,6 +12,10 @@ public class Cinema {
     private String address;
     private String city;
     private String province;
+
+    @OneToMany
+    @JoinColumn
+    private Set<TheatreRoom> theatreRooms;
 
     public Cinema() {}
 
