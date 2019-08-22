@@ -67,4 +67,12 @@ public class Cinema {
     public void setProvince(String province) {
         this.province = province;
     }
+
+    public Set<TheatreRoom> getTheatreRooms() {
+        return theatreRooms;
+    }
+
+    public void setTheatreRooms(Set<TheatreRoom> theatreRooms) {
+        this.theatreRooms = theatreRooms;
+    }
 }

@@ -7,14 +7,49 @@
           href="../css/movies.css" th:href="@{/css/movies.css}"/>
 </head>
 <body>
-    <h1>Add Cinema</h1>
-    <form action="#" th:action="@{/cinema}" th:object="${cinema}" method="post">
-        <p id="id" th:if="${cinema.id != null}"><input type="text" th:field="*{id}"/></p>
-        <p>Name: <input type="text" th:field="*{name}" /></p>
-        <p>Address: <input type="text" th:field="*{address}" /></p>
-        <p>City: <input type="text" th:field="*{city}" /></p>
-        <p>Province: <input type="text" th:field="*{province}" /></p>
-        <p><input type="submit" value="Submit" /></p>
-    </form>
+    <div>
+        <div>
+            <h1>Add Cinema</h1>
+            <form action="#" th:action="@{/cinema}" th:object="${cinema}" method="post">
+                <p id="id" th:if="${cinema.id != null}"><input type="text" th:field="*{id}"/></p>
+                <p>Name: <input type="text" th:field="*{name}" /></p>
+                <p>Address: <input type="text" th:field="*{address}" /></p>
+                <p>City: <input type="text" th:field="*{city}" /></p>
+                <p>Province: <input type="text" th:field="*{province}" /></p>
+                <p><input type="submit" value="Submit" /></p>
+            </form>
+        </div>
+
+        <div>
+            <h2>Theater Rooms</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Capacity</th>
+                        <th>Row Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${cinema.theatreRooms.empty}">
+                        <td colspan="3"> No Theatre Rooms Exist </td>
+                    <tr th:each="room : ${cinema.theatreRooms}">
+                        <td><span th:text="${room.id}"> Room Number </span></td>
+                        <td><span th:text="${room.capacity}"> Capacity </span></td>
+                        <td><span th:text="${room.seatingRows}"> Row Count </span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div th:if="${cinema.id != null}">
+                <h3>Add Theater Room</h3>
+                <form action="#" th:action="@{/__${cinema.id}__/theatre-room}" th:object="${theatreRoom}" method="post">
+                    <p>Room Number: <input type="text" th:field="*{id}" /></p>
+                    <p>Capacity: <input type="text" th:field="*{capacity}" /></p>
+                    <p>Row Count: <input type="text" th:field="*{seatingRows}" /></p>
+                    <p><input type="submit" value="Submit" /></p>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
