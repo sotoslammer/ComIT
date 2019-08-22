@@ -41,6 +41,8 @@ public class CinemaService {
             updatedRooms.add(theatreRoom);
             cinema.setTheatreRooms(updatedRooms);
 
+            cinemaRepository.save(cinema);
+
             return cinema;
         } else {
             throw new EntityNotFoundException("Cinema with id " + cinemaId + " could not be found");

@@ -3,6 +3,7 @@ package com.movies.movies.model.cinema;
 import com.movies.movies.model.TheatreRoom;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,11 +16,13 @@ public class Cinema {
     private String city;
     private String province;
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn
     private Set<TheatreRoom> theatreRooms;
 
-    public Cinema() {}
+    public Cinema() {
+        theatreRooms = new HashSet<>();
+    }
 
     public Cinema(String name, String address, String city, String province) {
         this.name = name;
