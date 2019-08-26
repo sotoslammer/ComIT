@@ -36,8 +36,7 @@ public class CinemaController {
     @PostMapping("/cinema")
     public String saveCinema(@ModelAttribute Cinema cinema, Model model) {
         cinemaService.saveCinema(cinema);
-        model.addAttribute("cinemas", cinemaService.getCinemas());
-        return "cinemas";
+        return "redirect:/cinemas";
     }
 
     @GetMapping("/cinemas")
@@ -50,8 +49,7 @@ public class CinemaController {
     public String addTheatreRoom(@ModelAttribute TheaterRoom theaterRoom,
                                  @PathVariable(name = "cinemaId") Long cinemaId,
                                  Model model) {
-        Cinema updated = cinemaService.addTheatreRoom(theaterRoom, cinemaId);
-        model.addAttribute("cinema", updated);
-        return "cinema";
+        cinemaService.addTheatreRoom(theaterRoom, cinemaId);
+        return "redirect:/cinema?id=" + cinemaId;
     }
 }
