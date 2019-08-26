@@ -53,6 +53,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -66,11 +70,14 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>4.0.3</version>
 				<configuration>
+					<url>jdbc:mysql://localhost:3306?useUnicode=yes&amp;characterEncoding=UTF-8</url>
+					<driver>com.mysql.jdbc.Driver</driver>
 					<user>brendan</user>
 					<password>P@ssw0rd</password>
 					<schemas>
 						<schema>movies</schema>
 					</schemas>
+					<baselineOnMigrate>true</baselineOnMigrate>
 				</configuration>
 			</plugin>
 
