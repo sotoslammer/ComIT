@@ -1,6 +1,7 @@
 package com.movies.movies.model.cinema;
 
-import com.movies.movies.model.TheatreRoom;
+import com.movies.movies.model.theaterroom.TheaterRoom;
+import com.movies.movies.model.theaterroom.TheaterRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,12 @@ import java.util.*;
 @Service
 public class CinemaService {
     private CinemaRepository cinemaRepository;
+    private TheaterRoomRepository theaterRoomRepository;
 
     @Autowired
-    public CinemaService(CinemaRepository cinemaRepository) {
+    public CinemaService(CinemaRepository cinemaRepository, TheaterRoomRepository theaterRoomRepository) {
         this.cinemaRepository = cinemaRepository;
+        this.theaterRoomRepository = theaterRoomRepository;
     }
 
     public void saveCinema(Cinema cinema) {
@@ -33,16 +36,14 @@ public class CinemaService {
         return cinemas;
     }
 
-    public Cinema addTheatreRoom(TheatreRoom theatreRoom, Long cinemaId) {
+    public Cinema addTheatreRoom(TheaterRoom theaterRoom, Long cinemaId) {
         Optional<Cinema> found = cinemaRepository.findById(cinemaId);
         if (found.isPresent()) {
             Cinema cinema = found.get();
-            Set<TheatreRoom> updatedRooms = new HashSet<>(cinema.getTheatreRooms());
-            updatedRooms.add(theatreRoom);
-            cinema.setTheatreRooms(updatedRooms);
+            theaterRoom.setCinema(cinema);
 
-            cinemaRepository.save(cinema);
-
+            TheaterRoom saved = theaterRoomRepository.save(theaterRoom);
+            cinema.addTheaterRoom(saved);
             return cinema;
         } else {
             throw new EntityNotFoundException("Cinema with id " + cinemaId + " could not be found");

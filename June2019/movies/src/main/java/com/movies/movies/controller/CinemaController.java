@@ -1,6 +1,6 @@
 package com.movies.movies.controller;
 
-import com.movies.movies.model.TheatreRoom;
+import com.movies.movies.model.theaterroom.TheaterRoom;
 import com.movies.movies.model.cinema.Cinema;
 import com.movies.movies.model.cinema.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class CinemaController {
                     .orElseThrow(() -> new EntityNotFoundException("Could not find cinema " + id));
         }
         model.addAttribute("cinema", cinema);
-        model.addAttribute("theatreRoom", new TheatreRoom());
+        model.addAttribute("theaterRoom", new TheaterRoom());
         return "cinema";
     }
 
@@ -47,10 +47,10 @@ public class CinemaController {
     }
 
     @PostMapping("/{cinemaId}/theatre-room")
-    public String addTheatreRoom(@ModelAttribute TheatreRoom theatreRoom,
+    public String addTheatreRoom(@ModelAttribute TheaterRoom theaterRoom,
                                  @PathVariable(name = "cinemaId") Long cinemaId,
                                  Model model) {
-        Cinema updated = cinemaService.addTheatreRoom(theatreRoom, cinemaId);
+        Cinema updated = cinemaService.addTheatreRoom(theaterRoom, cinemaId);
         model.addAttribute("cinema", updated);
         return "cinema";
     }

@@ -1,6 +1,6 @@
 package com.movies.movies.model.cinema;
 
-import com.movies.movies.model.TheatreRoom;
+import com.movies.movies.model.theaterroom.TheaterRoom;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,12 +16,11 @@ public class Cinema {
     private String city;
     private String province;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn
-    private Set<TheatreRoom> theatreRooms;
+    @OneToMany(mappedBy = "cinema")
+    private Set<TheaterRoom> theaterRooms;
 
     public Cinema() {
-        theatreRooms = new HashSet<>();
+        theaterRooms = new HashSet<>();
     }
 
     public Cinema(String name, String address, String city, String province) {
@@ -71,11 +70,15 @@ public class Cinema {
         this.province = province;
     }
 
-    public Set<TheatreRoom> getTheatreRooms() {
-        return theatreRooms;
+    public Set<TheaterRoom> getTheaterRooms() {
+        return theaterRooms;
     }
 
-    public void setTheatreRooms(Set<TheatreRoom> theatreRooms) {
-        this.theatreRooms = theatreRooms;
+    public void setTheaterRooms(Set<TheaterRoom> theaterRooms) {
+        this.theaterRooms = theaterRooms;
+    }
+
+    public void addTheaterRoom(TheaterRoom theaterRoom) {
+        this.theaterRooms.add(theaterRoom);
     }
 }
