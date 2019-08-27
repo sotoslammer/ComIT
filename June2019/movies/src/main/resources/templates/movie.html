@@ -12,6 +12,13 @@
     <p id="id" th:if="${movie.id != null}"><input type="text" th:field="*{id}"/></p>
     <p>Title: <input type="text" th:field="*{title}" /></p>
     <p>Genre: <input type="text" th:field="*{genre}" /></p>
+
+    <div>
+        <label>Rating</label>
+        <input type="radio" name="rating" value="E" th:field="*{rating}">Everyone</input>
+        <input type="radio" name="rating" value="R" th:field="*{rating}">18+</input>
+    </div>
+    <input type="checkbox" name="is3D" th:field="*{is3D}">is this movie 3d?</input>
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>
