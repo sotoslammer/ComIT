@@ -44,7 +44,7 @@
                 <h3>Add Theater Room</h3>
                 <form action="#" th:action="@{/__${cinema.id}__/theatre-room}" th:object="${theaterRoom}" method="post">
                     <p>Room Number: <input type="text" th:field="*{number}" /></p>
-                    <p>Capacity: <input type="text" th:field="*{capacity}" /></p>
+                    <p>Capacity: <input class="no-negative" type="text" th:field="*{capacity}" /></p>
                     <p>Row Count: <input type="text" th:field="*{rows}" /></p>
                     <p><input type="submit" value="Submit" /></p>
                 </form>
@@ -52,4 +52,5 @@
         </div>
     </div>
 </body>
+<script src="/js/validation.js"></script>
 </html>
