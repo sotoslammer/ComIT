@@ -1,14 +1,12 @@
 package com.movies.movies.controller;
 
+import com.movies.movies.model.MovieSearch;
 import com.movies.movies.model.movie.Movie;
 import com.movies.movies.model.movie.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -26,6 +24,7 @@ public class MovieController {
     @GetMapping("/movies")
     public String movies(Model model) {
         model.addAttribute("movies", service.findMovies());
+        model.addAttribute("search", new MovieSearch());
         return MOVIES_VIEW;
     }
 
@@ -38,14 +37,26 @@ public class MovieController {
             movie = service.findMovieById(id).orElseThrow(() -> new EntityNotFoundException("Could not find movie " + id));
         }
         model.addAttribute("movie", movie);
-
         return MOVIE_VIEW;
     }
 
     @PostMapping("/movie")
     public String saveMovie(@ModelAttribute Movie movie, Model model) {
         service.saveMovie(movie);
-        model.addAttribute("movies", service.findMovies());
+        return "redirect:/movies";
+    }
+
+    @DeleteMapping("/movie")
+    public String deleteMovie(@RequestParam(name="id")Long id, Model model) {
+        service.deleteMovie(id);
+        model.addAttribute("deleted", id);
+        return "redirect:/movies";
+    }
+
+    @GetMapping("/movie-search")
+    public String findMovie(@ModelAttribute MovieSearch search, Model model) {
+        model.addAttribute("movies", service.findMovieByTitle(search.getTitle()));
+        model.addAttribute("search", search);
         return MOVIES_VIEW;
     }
 }

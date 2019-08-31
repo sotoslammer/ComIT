@@ -33,4 +33,12 @@ public class MovieService {
 
         return movies;
     }
+
+    public void deleteMovie(Long id) {
+        movieRepository.deleteById(id);
+    }
+
+    public List<Movie> findMovieByTitle(String title) {
+        return movieRepository.findMovieByTitle(title + "%");
+    }
 }

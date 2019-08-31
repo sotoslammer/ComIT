@@ -8,7 +8,11 @@
 </head>
 <body>
 <p th:if="${movie != null}" th:text="'Movie Added: ' + ${movie.title}"></p>
+<p th:if="${deleted != null}" th:text="'Movie Deleted: ' + ${deleted}"></p>
 <a th:href="@{/movie}">Add</a>
+<form th:method="get" th:action="@{/movie-search}" th:object="${search}">
+    <p>Title: <input type="text" th:field="*{title}" /></p>
+</form>
 <table>
     <thead>
     <tr>
@@ -22,6 +26,11 @@
         <td th:text="${movie.genre}">Genre</td>
         <td>
             <a th:href="@{/movie(id=${movie.id})}">Edit</a>
+        </td>
+        <td>
+            <form th:method="delete" th:action="@{/movie(id=${movie.id})}">
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>
