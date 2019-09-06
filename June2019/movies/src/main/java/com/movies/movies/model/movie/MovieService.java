@@ -9,12 +9,8 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
-    private MovieRepository movieRepository;
-
     @Autowired
-    public MovieService(MovieRepository movieRepository) {
-        this.movieRepository = movieRepository;
-    }
+    private MovieRepository movieRepository;
 
     public void saveMovie(Movie movie) {
         movieRepository.save(movie);
