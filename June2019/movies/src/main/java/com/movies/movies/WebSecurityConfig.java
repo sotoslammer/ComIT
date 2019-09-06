@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/public/**").permitAll()
+                .antMatchers("/", "/home", "/public/**", "/rest-movie").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .oauth2Login();
