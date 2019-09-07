@@ -15,6 +15,15 @@ public class Movie {
     private Rating rating;
     private Boolean is3D;
 
+    public Movie() {};
+
+    public Movie(String title, String genre, Rating rating, Boolean is3D) {
+        this.title = title;
+        this.genre = genre;
+        this.rating = rating;
+        this.is3D = is3D;
+    }
+
     public Boolean getIs3D() {
         return is3D;
     }

@@ -14,6 +14,7 @@ import java.util.Optional;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 
 @RunWith(SpringRunner.class)
 public class MovieServiceTest {
@@ -40,10 +41,10 @@ public class MovieServiceTest {
         Movie movie = new Movie();
 
         // Setup Mock return values of mocked objects
-        Mockito.when(movieRepository.findById(any())).thenReturn(Optional.of(movie));
+        Mockito.when(movieRepository.findById(eq(2L))).thenReturn(Optional.of(movie));
 
         // call test method with controlled arguments
-        Optional<Movie> result = service.findMovieById(1);
+        Optional<Movie> result = service.findMovieById(2L);
         // verify the results
         assertTrue(result.isPresent());
         assertThat(result.get(), is(movie));
